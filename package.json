@@ -1,0 +1,63 @@
+{
+  "name": "wtf-javascript-quiz",
+  "private": false,
+  "description": "",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Aleksandra Sikora",
+    "url": "https://github.com/beerose"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "dev": "microbundle watch"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@mdx-js/mdx": "^1.6.7",
+    "@mdx-js/react": "^1.6.7",
+    "@theme-ui/color": "^0.4.0-rc.1",
+    "@theme-ui/presets": "^0.4.0-rc.1",
+    "@theme-ui/prism": "^0.4.0-rc.1",
+    "@types/react-hamburger-menu": "^0.0.3",
+    "@types/react-helmet": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "gatsby": "^2.24.3",
+    "gatsby-plugin-mdx": "^1.2.26",
+    "gatsby-plugin-theme-ui": "^0.4.0-rc.1",
+    "gatsby-plugin-typescript": "^2.4.15",
+    "gatsby-remark-code-buttons": "^2.0.4",
+    "gatsby-remark-autolink-headers": "^2.3.11",
+    "gatsby-source-filesystem": "^2.3.19",
+    "prettier": "2.0.5",
+    "react-dom": "^16.13.1",
+    "react-hamburger-menu": "^1.2.1",
+    "react-helmet": "^6.1.0",
+    "react-live": "^2.2.2",
+    "react-toggle-dark-mode": "^1.0.2",
+    "theme-ui": "^0.4.0-rc.1",
+    "typescript": "^3.9.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beerose/wtf-js-quiz"
+  },
+  "bugs": {
+    "url": "https://github.com/beerose/wtf-js-quiz/issues"
+  },
+  "homepage": "https://github.com/beerose/wtf-js-quiz#readme",
+  "keywords": [
+    "javascript"
+  ]
+}
