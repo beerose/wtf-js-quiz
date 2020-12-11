@@ -1,65 +1,83 @@
 /** @jsx jsx */
-import React from 'react';
-import {
-  jsx,
-  Button,
-  Card,
-  Container,
-  Divider,
-  Heading,
-  Label,
-  Radio,
-} from 'theme-ui';
+import React, { Dispatch } from 'react';
+import { jsx, Button, Card, Divider, Heading, Label, Radio } from 'theme-ui';
+
+import { Action } from '../pages/index';
+import { shuffleArray } from '../common/utils';
 
 type QuestionProps = {
-  count: number;
-  question: React.ReactNode;
-  answers: {
-    answer: string;
-    correct: boolean;
-  }[];
+  question: {
+    id: number;
+    content: React.ReactNode;
+    answers: {
+      id: number;
+      answer: string;
+      correct: boolean;
+    }[];
+  };
+  dispatch: Dispatch<Action>;
+  questionIndex: number;
 };
 
 //random order of answers
-export const Question = (props: QuestionProps) => {
+export const Question = ({
+  question,
+  questionIndex,
+  dispatch,
+}: QuestionProps) => {
   return (
-    <Container
-      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    <Card
+      sx={{
+        p: 4,
+        width: ['100%', '80%', '60%'],
+      }}
     >
-      <Card
+      <Heading as="h3">{question.content}</Heading>
+      <Divider></Divider>
+      {shuffleArray(question.answers).map(a => (
+        <Label key={a.id} sx={{ display: 'flex', alignItems: 'center' }}>
+          <Radio
+            name={a.answer}
+            value={a.answer}
+            onSelect={() =>
+              dispatch({
+                type: 'select-answer',
+                questionId: question.id,
+                answerId: a.id,
+              })
+            }
+          />
+          {a.answer}
+        </Label>
+      ))}
+      <div
         sx={{
-          width: '60%',
-          p: 4,
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          pt: 3,
         }}
       >
-        <Heading as="h3">{props.question}</Heading>
-        <Divider></Divider>
-        <div sx={{ py: 4 }}>
-          {props.answers.map(a => (
-            <Label
-              key={a.answer}
-              sx={{ display: 'flex', alignItems: 'center' }}
+        <div>
+          {questionIndex > 0 ? (
+            <Button
+              variant="secondary"
+              onClick={() => dispatch({ type: 'go-to-prev-question' })}
             >
-              <Radio name="dark-mode" value="true" />
-              {a.answer}
-            </Label>
-          ))}
+              Prev
+            </Button>
+          ) : null}
         </div>
-        <div
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            width: '100%',
-            pt: 3,
-          }}
-        >
-          <Button variant="secondary">Prev</Button>
-          <span>
-            <b>1</b>/5
-          </span>
-          <Button>Next</Button>
-        </div>
-      </Card>
-    </Container>
+        {questionIndex < 10 ? (
+          <Button onClick={() => dispatch({ type: 'go-to-next-question' })}>
+            Next
+          </Button>
+        ) : (
+          <Button onClick={() => dispatch({ type: 'finish-quiz' })}>
+            🎉 Finish quiz 🎉
+          </Button>
+        )}
+      </div>
+    </Card>
   );
 };

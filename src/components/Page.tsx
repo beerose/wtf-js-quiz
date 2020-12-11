@@ -72,6 +72,7 @@ export function Page({ children }: PageProps) {
             p: 3,
             textAlign: 'center',
             position: 'absolute',
+            width: '100%',
             bottom: 0,
             backgroundColor: 'background',
           }}

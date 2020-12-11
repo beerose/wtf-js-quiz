@@ -12,16 +12,16 @@ const COUNT = 10;
 type State = {
   status: 'initial' | 'quiz-in-progress' | 'quiz-finished';
   answers: { [questionId: number]: number };
-  currentQuestion: number;
+  currentQuestionIndex: number;
 };
 
 const initialState: State = {
   status: 'initial',
   answers: {},
-  currentQuestion: 0,
+  currentQuestionIndex: 0,
 };
 
-type Action =
+export type Action =
   | {
       type: 'start-quiz';
     }
@@ -51,20 +51,20 @@ const reducer = (state: State, action: Action): State => {
         status: 'quiz-in-progress',
       };
     case 'go-to-next-question':
-      if (state.currentQuestion + 1 >= COUNT) {
+      if (state.currentQuestionIndex >= COUNT) {
         return state;
       }
       return {
         ...state,
-        currentQuestion: state.currentQuestion + 1,
+        currentQuestionIndex: state.currentQuestionIndex + 1,
       };
     case 'go-to-prev-question':
-      if (state.currentQuestion - 1 <= 0) {
+      if (state.currentQuestionIndex <= 0) {
         return state;
       }
       return {
         ...state,
-        currentQuestion: state.currentQuestion - 1,
+        currentQuestionIndex: state.currentQuestionIndex - 1,
       };
     case 'select-answer':
       return {
@@ -95,15 +95,27 @@ export default function IndexPage() {
       <Section>
         <Hero />
       </Section>
-      <Section sx={{ height: '100%' }}>
-        <Button>Start</Button>
-      </Section>
-      <Section sx={{ height: '100%' }}>
-        <Question
-          count={5}
-          question="What is the result of the following"
-          answers={[{ answer: 'yes', correct: false }]}
-        />
+      <Section>
+        {state.status === 'initial' && (
+          <Button onClick={() => dispatch({ type: 'start-quiz' })}>
+            Start
+          </Button>
+        )}
+        {state.status === 'quiz-in-progress' && (
+          <Question
+            question={{
+              content: 'What is the result of the following',
+              answers: [
+                { id: 1, answer: 'yes', correct: false },
+                { id: 2, answer: 'lallal', correct: false },
+                { id: 3, answer: 'bobo', correct: false },
+              ],
+              id: 1,
+            }}
+            questionIndex={state.currentQuestionIndex}
+            dispatch={dispatch}
+          />
+        )}
       </Section>
     </Page>
   );
