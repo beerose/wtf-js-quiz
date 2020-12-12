@@ -56,7 +56,7 @@ export const Header = (props: ComponentProps<'header'>) => {
       </GatsbyLink>
       <div sx={{ mx: 'auto' }} />
       <Link
-        href="https://github.com/beerose/wtf-js"
+        href="https://github.com/beerose/wtf-js-quiz"
         sx={{ display: 'flex', variant: 'links.navLink' }}
       >
         <GitHub />
