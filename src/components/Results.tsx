@@ -39,8 +39,6 @@ export const Results = ({ answers, dispatch }: ResultsProps) => {
     }, 0);
   }, [answers]);
 
-  console.log({ answers });
-
   return (
     <Card>
       <div

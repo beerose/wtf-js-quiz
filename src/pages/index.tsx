@@ -1,5 +1,5 @@
 /* @jsx jsx */
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Button, Card, jsx } from 'theme-ui';
 import { questions } from '../common/questions';
 
@@ -90,27 +90,27 @@ const reducer = (state: State, action: Action): State => {
 export default function IndexPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(
-    "%cPlease don't cheat in my quiz 😊",
-    'color: blue; font-size: x-large; background: white'
-  );
+  useEffect(() => {
+    console.log(
+      "%cPlease don't cheat in my quiz 😊",
+      'color: blue; font-size: x-large; background: white'
+    );
+  }, []);
 
   return (
     <Page>
       <Section>
-        <Card>
-          <Hero />
-          {state.status === 'initial' && (
+        {state.status === 'initial' && (
+          <Card>
+            <Hero />
             <Button
               sx={{ mt: 3 }}
               onClick={() => dispatch({ type: 'start-quiz' })}
             >
               Start
             </Button>
-          )}
-        </Card>
-      </Section>
-      <Section>
+          </Card>
+        )}
         {state.status === 'quiz-in-progress' && (
           <Question
             selectedAnswer={state.answers[state.currentQuestionIndex]}

@@ -21,12 +21,22 @@ export const Question = ({
   ]);
 
   return (
-    <Card>
+    <Card
+      as="form"
+      onSubmit={e => {
+        e.preventDefault();
+        if (questionIndex === questions.length - 1) {
+          dispatch({ type: 'finish-quiz' });
+          return;
+        }
+        dispatch({ type: 'go-to-next-question' });
+      }}
+    >
       {currentQuestion.content}
       {currentQuestion.answers.map(a => (
         <Label key={a.id} sx={{ display: 'flex', alignItems: 'center' }}>
           <Radio
-            name={a.answer}
+            name={currentQuestion.id.toString()}
             value={a.answer}
             checked={selectedAnswer === a.id}
             onChange={() => {
@@ -42,7 +52,7 @@ export const Question = ({
       ))}
       <Label sx={{ display: 'flex', alignItems: 'center' }}>
         <Radio
-          name="wtf"
+          name={currentQuestion.id.toString()}
           value="wtf"
           checked={selectedAnswer === -1 || selectedAnswer === undefined}
           onChange={() => {
@@ -79,9 +89,7 @@ export const Question = ({
             🎉 Finish quiz 🎉
           </Button>
         ) : (
-          <Button onClick={() => dispatch({ type: 'go-to-next-question' })}>
-            Next
-          </Button>
+          <Button type="submit">Next</Button>
         )}
       </div>
       <Progress max={questions.length} value={questionIndex + 1} />
