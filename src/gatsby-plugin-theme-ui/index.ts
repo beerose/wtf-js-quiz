@@ -1,4 +1,4 @@
-import { deep, future } from '@theme-ui/presets';
+import { funk, dark } from '@theme-ui/presets';
 import nightOwl from '@theme-ui/prism/presets/night-owl.json';
 import { Theme, merge } from 'theme-ui';
 import { alpha } from '@theme-ui/color';
@@ -11,11 +11,6 @@ const primary = {
   ':hover, :focus': {
     transform: 'translateY(-0.125rem)',
   },
-  ':focus': {
-    // borderColor: 'background',
-    // boxShadow: t => `0 0 0 2px ${t.colors.secondary}`,
-    // outline: 'none',
-  },
   '&&': {
     color: 'background',
     ':hover, :focus': {
@@ -26,16 +21,15 @@ const primary = {
 
 const secondaryLight = alpha('secondary', 0.2);
 const secondarySemiLight = alpha('secondary', 0.5);
-const theme: Theme = merge(future as Theme, {
+const theme: Theme = merge(funk as Theme, {
   initialColorModeName: 'light',
   useColorSchemeMediaQuery: true,
-  // fontSizes: [8, 10, 16, 24, 36, 54, 81, 121],
   colors: {
     shadow: 'rgba(0,0,0,0.2)',
     heading: 'rgb(51, 51, 51)',
     modes: {
       dark: {
-        ...deep.colors,
+        ...dark.colors,
         shadow: 'rgba(0,0,0,0.4)',
         text: 'hsl(210, 60%, 97%)',
         heading: '#fff',
@@ -46,8 +40,8 @@ const theme: Theme = merge(future as Theme, {
     container: 1100,
   },
   fonts: {
-    heading: 'PT Serif',
-    body: 'system-ui, sans-serif',
+    heading: 'Oswald, serif',
+    body: 'Raleway, system-ui, sans-serif',
     mono: 'Monolisa, Fira Code, Hasklig, Hack, Menlo, Monaco',
   },
   radii: {
@@ -56,6 +50,14 @@ const theme: Theme = merge(future as Theme, {
     medium: '10px',
   },
   styles: {
+    progress: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      height: '20px',
+      borderRadius: 0,
+      border: t => `4px solid ${t.colors.background}`,
+    },
     root: {},
     time: {
       fontWeight: '200',
@@ -83,12 +85,8 @@ const theme: Theme = merge(future as Theme, {
       fontFamily: 'body',
     },
     section: {
-      paddingX: '2px',
       width: '100%',
       px: [3, 3, 3, 4],
-      section: {
-        px: '2px',
-      },
     },
     p: {
       my: 2,

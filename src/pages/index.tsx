@@ -9,7 +9,7 @@ import { Section } from '../components/Section';
 
 const COUNT = 10;
 
-type State = {
+export type State = {
   status: 'initial' | 'quiz-in-progress' | 'quiz-finished';
   answers: { [questionId: number]: number };
   currentQuestionIndex: number;
@@ -90,6 +90,8 @@ const reducer = (state: State, action: Action): State => {
 export default function IndexPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  console.log({ state });
+
   return (
     <Page>
       <Section>
@@ -103,15 +105,7 @@ export default function IndexPage() {
         )}
         {state.status === 'quiz-in-progress' && (
           <Question
-            question={{
-              content: 'What is the result of the following',
-              answers: [
-                { id: 1, answer: 'yes', correct: false },
-                { id: 2, answer: 'lallal', correct: false },
-                { id: 3, answer: 'bobo', correct: false },
-              ],
-              id: 1,
-            }}
+            selectedAnswer={state.answers[state.currentQuestionIndex]}
             questionIndex={state.currentQuestionIndex}
             dispatch={dispatch}
           />

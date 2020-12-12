@@ -5,7 +5,7 @@ import { Container } from 'theme-ui';
 export const Section: React.FC<React.ComponentProps<'section'>> = props => (
   <section
     sx={{
-      px: [4],
+      px: [1, 4],
       py: [4],
       width: '800px',
       position: 'relative',

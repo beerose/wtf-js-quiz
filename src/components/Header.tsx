@@ -3,8 +3,6 @@ import { Link as GatsbyLink } from 'gatsby';
 import { jsx, Link } from 'theme-ui';
 import { ToggleMode } from './ToggleMode';
 import { ComponentProps } from 'react';
-import HamburgerMenu from 'react-hamburger-menu';
-import { useState } from 'react';
 
 export const GitHub = () => (
   <svg
@@ -24,8 +22,6 @@ export const GitHub = () => (
 );
 
 export const Header = (props: ComponentProps<'header'>) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header
       sx={{
@@ -33,7 +29,7 @@ export const Header = (props: ComponentProps<'header'>) => {
         variant: 'styles.header',
         px: [3, 3, 3],
         py: 3,
-        fontSize: '14px',
+        fontSize: 2,
         alignItems: 'center',
         color: 'text',
         width: t => t.sizes.container + 2 * t.space['3'],
@@ -50,57 +46,9 @@ export const Header = (props: ComponentProps<'header'>) => {
       }}
       {...props}
     >
-      <HamburgerMenu
-        isOpen={menuOpen}
-        menuClicked={() => setMenuOpen(prev => !prev)}
-        width={18}
-        height={12}
-        strokeWidth={2}
-        rotate={0}
-        borderRadius={5}
-        animationDuration={0.3}
-        color="currentColor"
-        sx={{
-          display: ['unset', 'none'],
-          zIndex: '200',
-          ...(menuOpen && ({ position: 'fixed !important' } as any)),
-        }}
-      />
-      <div
-        sx={{
-          display: ['flex', 'none'],
-          transform: menuOpen ? 'translateX(0)' : 'translateX(-120%)',
-          transition: 'transform 300ms ease',
-          width: '50%',
-          height: '100%',
-          zIndex: '100',
-          bg: 'background',
-          position: 'fixed',
-          top: '0',
-          flexDirection: 'column',
-          marginLeft: '-16px',
-          paddingLeft: '16px',
-          paddingTop: '60px',
-          boxShadow: menuOpen
-            ? theme => `0 6px 50px ${theme.colors.shadow}`
-            : 'none',
-        }}
-      >
-        <GatsbyLink
-          onClick={() => setMenuOpen(false)}
-          to="/"
-          sx={{
-            pt: 2,
-            borderRadius: '4px',
-          }}
-        >
-          Home
-        </GatsbyLink>
-      </div>
       <GatsbyLink
         to="/"
         sx={{
-          display: ['none', 'unset'],
           variant: 'links.navLink',
         }}
       >

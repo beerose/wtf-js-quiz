@@ -1,51 +1,63 @@
 /** @jsx jsx */
-import React, { Dispatch } from 'react';
-import { jsx, Button, Card, Divider, Heading, Label, Radio } from 'theme-ui';
+import { Dispatch, useMemo } from 'react';
+import {
+  jsx,
+  Button,
+  Card,
+  Divider,
+  Heading,
+  Label,
+  Radio,
+  Progress,
+} from 'theme-ui';
 
-import { Action } from '../pages/index';
-import { shuffleArray } from '../common/utils';
+import { Action, State } from '../pages/index';
+import { questions } from '../common/questions';
 
 type QuestionProps = {
-  question: {
-    id: number;
-    content: React.ReactNode;
-    answers: {
-      id: number;
-      answer: string;
-      correct: boolean;
-    }[];
-  };
   dispatch: Dispatch<Action>;
   questionIndex: number;
+  selectedAnswer: State['answers'][0];
 };
 
-//random order of answers
 export const Question = ({
-  question,
   questionIndex,
   dispatch,
+  selectedAnswer,
 }: QuestionProps) => {
+  const currentQuestion = useMemo(() => questions[questionIndex], [
+    questionIndex,
+  ]);
+
+  // const shuffledAnswers = useMemo(() => shuffleArray(currentQuestion.answers), [
+  //   currentQuestion.answers,
+  // ]);
+
   return (
     <Card
       sx={{
-        p: 4,
+        px: [2, 4],
+        py: [3, 4],
         width: ['100%', '80%', '60%'],
+        position: 'relative',
       }}
     >
-      <Heading as="h3">{question.content}</Heading>
-      <Divider></Divider>
-      {shuffleArray(question.answers).map(a => (
+      <Heading as="h3">{currentQuestion.content}</Heading>
+      <Divider sx={{ my: 3 }} />
+      {currentQuestion.answers.map(a => (
         <Label key={a.id} sx={{ display: 'flex', alignItems: 'center' }}>
           <Radio
             name={a.answer}
             value={a.answer}
-            onSelect={() =>
+            checked={selectedAnswer === a.id}
+            onChange={() => {
+              console.log('select');
               dispatch({
                 type: 'select-answer',
-                questionId: question.id,
+                questionId: currentQuestion.id,
                 answerId: a.id,
-              })
-            }
+              });
+            }}
           />
           {a.answer}
         </Label>
@@ -78,6 +90,7 @@ export const Question = ({
           </Button>
         )}
       </div>
+      <Progress max={10} value={(questionIndex + 1) / 10} />
     </Card>
   );
 };
