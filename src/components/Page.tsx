@@ -22,6 +22,8 @@ export function Page({ children }: PageProps) {
           content="JavaScript Quiz. Come and see how much you don't know about JS."
         />
         <meta name="keywords" content="quiz, javascript" />
+        <meta key="og:image" name="og:image" content="seo.png" />,
+        <meta key="twitter:image" name="twitter:image" content="seo.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Oswald&family=Andika+New+Basic:wght@400;700&display=swap"
           rel="stylesheet"
