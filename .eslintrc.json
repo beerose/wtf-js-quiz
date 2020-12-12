@@ -21,7 +21,6 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/display-name": "off",
     "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "no-undef": "off",
     "react/prop-types": "off",

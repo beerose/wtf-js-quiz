@@ -90,6 +90,11 @@ const reducer = (state: State, action: Action): State => {
 export default function IndexPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  console.log(
+    "%cPlease don't cheat in my quiz 😊",
+    'color: blue; font-size: x-large; background: white'
+  );
+
   return (
     <Page>
       <Section>

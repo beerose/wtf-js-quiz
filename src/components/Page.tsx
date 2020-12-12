@@ -16,11 +16,28 @@ export function Page({ children }: PageProps) {
           lang: 'en',
         }}
       >
-        <title>wtf?! JS Quiz</title>
+        <title>wtf?! JavaScript Quiz</title>
+        <meta
+          key="twitter:title"
+          property="twitter:title"
+          content="wtf?! JavaScript Quiz"
+        />
         <meta
           name="description"
           content="JavaScript Quiz. Come and see how much you don't know about JS."
         />
+        <meta
+          key="og:description"
+          property="og:description"
+          content="JavaScript Quiz. Come and see how much you don't know about JS."
+        />
+        ,
+        <meta
+          key="twitter:description"
+          property="twitter:description"
+          content="JavaScript Quiz. Come and see how much you don't know about JS."
+        />
+        ,
         <meta name="keywords" content="quiz, javascript" />
         <meta key="og:image" name="og:image" content="seo.png" />,
         <meta key="twitter:image" name="twitter:image" content="seo.png" />
