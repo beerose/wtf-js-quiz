@@ -34,14 +34,7 @@ export const Question = ({
   // ]);
 
   return (
-    <Card
-      sx={{
-        px: [2, 4],
-        py: [3, 4],
-        width: ['100%', '80%', '60%'],
-        position: 'relative',
-      }}
-    >
+    <Card>
       <Heading as="h3">{currentQuestion.content}</Heading>
       <Divider sx={{ my: 3 }} />
       {currentQuestion.answers.map(a => (
@@ -51,7 +44,6 @@ export const Question = ({
             value={a.answer}
             checked={selectedAnswer === a.id}
             onChange={() => {
-              console.log('select');
               dispatch({
                 type: 'select-answer',
                 questionId: currentQuestion.id,
@@ -68,6 +60,7 @@ export const Question = ({
           justifyContent: 'space-between',
           width: '100%',
           pt: 3,
+          pb: 2,
         }}
       >
         <div>

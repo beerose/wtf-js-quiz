@@ -26,12 +26,15 @@ export function Page({ children }: PageProps) {
         styles={{
           html: {
             scrollBehavior: 'smooth',
+            minHeight: '100%',
           },
           body: {
+            minHeight: '100vh',
+            position: 'relative',
             ':before': {
               content: '""',
-              backgroundImage: 'url("wtf.png")',
-              backgroundSize: '150px',
+              backgroundImage: 'url("wtf.webp")',
+              backgroundSize: '110px',
               backgroundBlendMode: 'hard-light',
               opacity: 0.5,
               top: 0,
@@ -41,11 +44,15 @@ export function Page({ children }: PageProps) {
               position: 'absolute',
             },
           },
+          '#___gatsby': {
+            minHeight: '100%',
+          },
         }}
       />
       <div
         sx={{
           width: '100%',
+          height: '100%',
           backgroundColor: 'background',
           display: 'flex',
           justifyContent: 'center',
@@ -68,8 +75,9 @@ export function Page({ children }: PageProps) {
           sx={{
             p: 1,
             px: 2,
+            mt: 2,
             textAlign: 'center',
-            position: 'absolute',
+            position: ['relative', 'absolute', 'absolute'],
             bottom: 0,
             backgroundColor: 'background',
           }}

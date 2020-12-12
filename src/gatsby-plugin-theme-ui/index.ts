@@ -7,6 +7,7 @@ const primary = {
   fontFamily: 'inherit',
   fontWeight: 'bold',
   cursor: 'pointer',
+  borderRadius: 0,
   transition: 'transform 150ms linear',
   ':hover, :focus': {
     transform: 'translateY(-0.125rem)',
@@ -52,8 +53,8 @@ const theme: Theme = merge(funk as Theme, {
   styles: {
     progress: {
       position: 'absolute',
-      bottom: 0,
-      left: 0,
+      bottom: '-10px',
+      left: '-10px',
       height: '20px',
       borderRadius: 0,
       border: t => `4px solid ${t.colors.background}`,
@@ -120,14 +121,16 @@ const theme: Theme = merge(funk as Theme, {
       ':focus, :hover': {
         ':before': {
           content: '""',
-          backgroundColor: secondaryLight,
+          borderColor: 'secondary',
+          borderWidth: '2px',
+          borderStyle: 'solid',
           opacity: 0.9,
           position: 'absolute',
           top: -1,
           bottom: -1,
           right: -1,
           left: -1,
-          transform: 'rotate(-2deg)',
+          transform: 'rotate(-4deg)',
         },
       },
     },
@@ -142,9 +145,11 @@ const theme: Theme = merge(funk as Theme, {
       fontSize: 5,
     },
     h3: {
+      color: 'heading',
       fontSize: 4,
     },
     h4: {
+      color: 'heading',
       fontFamily: 'body',
     },
     hr: {
@@ -197,7 +202,27 @@ const theme: Theme = merge(funk as Theme, {
   },
   cards: {
     primary: {
+      position: 'relative',
+      zIndex: 10,
       backgroundColor: 'background',
+      border: t => `2px solid ${t.colors.heading}`,
+      transform: 'translateX(5px)',
+      p: [2, 3],
+      pt: [3, 4],
+      pr: ['20px', 4],
+      pl: 0,
+      width: ['100%', '80%', '60%'],
+      '::before': {
+        content: '""',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        border: t => `2px solid ${t.colors.heading}`,
+        backgroundColor: 'background',
+        top: '8px',
+        left: '-12px',
+        zIndex: -1,
+      },
     },
   },
   links: {

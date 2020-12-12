@@ -1,6 +1,6 @@
 /* @jsx jsx */
 import { useReducer } from 'react';
-import { Button, jsx } from 'theme-ui';
+import { Button, Card, jsx } from 'theme-ui';
 
 import { Hero } from '../components/Hero';
 import { Page } from '../components/Page';
@@ -95,14 +95,16 @@ export default function IndexPage() {
   return (
     <Page>
       <Section>
-        <Hero />
+        <Card>
+          <Hero />
+          {state.status === 'initial' && (
+            <Button onClick={() => dispatch({ type: 'start-quiz' })}>
+              Start
+            </Button>
+          )}
+        </Card>
       </Section>
       <Section>
-        {state.status === 'initial' && (
-          <Button onClick={() => dispatch({ type: 'start-quiz' })}>
-            Start
-          </Button>
-        )}
         {state.status === 'quiz-in-progress' && (
           <Question
             selectedAnswer={state.answers[state.currentQuestionIndex]}

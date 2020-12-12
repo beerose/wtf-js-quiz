@@ -1,22 +1,17 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
+import { jsx } from 'theme-ui';
 
 export const Hero = () => (
   <Fragment>
-    {/* <h1 sx={{ mb: 3 }}>Let's talk.</h1>
+    <h2 sx={{ mb: 3, mt: 0 }}>wtf?! JavaScript Quiz</h2>
     <p
       sx={{
         fontSize: 3,
       }}
     >
-      Effortlessly add a comment section to your website,{' '}
-      <br
-        sx={{
-          display: ['none', 'unset'],
-        }}
-      />{' '}
-      and start the discussion on your content.
-    </p> */}
+      {' '}
+      We all experinced tons of WTF moments. See how much you don&apos;t know.
+    </p>
   </Fragment>
 );
