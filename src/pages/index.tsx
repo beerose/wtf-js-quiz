@@ -96,7 +96,10 @@ export default function IndexPage() {
         <Card>
           <Hero />
           {state.status === 'initial' && (
-            <Button onClick={() => dispatch({ type: 'start-quiz' })}>
+            <Button
+              sx={{ mt: 3 }}
+              onClick={() => dispatch({ type: 'start-quiz' })}
+            >
               Start
             </Button>
           )}
