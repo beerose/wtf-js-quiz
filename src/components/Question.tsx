@@ -77,6 +77,7 @@ export const Question = ({
         <div>
           {questionIndex > 0 ? (
             <Button
+              type="button"
               variant="secondary"
               onClick={() => dispatch({ type: 'go-to-prev-question' })}
             >
@@ -85,9 +86,7 @@ export const Question = ({
           ) : null}
         </div>
         {questionIndex === questions.length - 1 ? (
-          <Button onClick={() => dispatch({ type: 'finish-quiz' })}>
-            🎉 Finish quiz 🎉
-          </Button>
+          <Button type="submit">🎉 Finish quiz 🎉</Button>
         ) : (
           <Button type="submit">Next</Button>
         )}

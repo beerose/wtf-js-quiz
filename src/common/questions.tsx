@@ -17,7 +17,7 @@ export const questions: Question[] = [
     id: 0,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 typeof NaN; // ❓❓❓
@@ -36,7 +36,7 @@ typeof NaN; // ❓❓❓
     id: 1,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 "wtf" instanceof String; // ❓❓❓
@@ -54,7 +54,7 @@ typeof NaN; // ❓❓❓
     id: 2,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 [] == ![]; // ❓❓❓
@@ -72,7 +72,7 @@ typeof NaN; // ❓❓❓
     id: 3,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 Object.prototype.wtf = "wtf";
@@ -92,7 +92,7 @@ console.log(wtf); // ❓❓❓
     id: 4,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 const num = 02020;
@@ -104,15 +104,16 @@ console.log(num); // ❓❓❓
     answers: [
       { id: 0, answer: 'Error' },
       { id: 1, answer: '2020' },
-      { id: 2, answer: '0' },
-      { id: 3, answer: '1040', correct: true },
+      { id: 2, answer: '20' },
+      { id: 3, answer: '0' },
+      { id: 4, answer: '1040', correct: true },
     ],
   },
   {
     id: 5,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 Number.MIN_VALUE > 0; // ❓❓❓
@@ -130,25 +131,26 @@ Number.MIN_VALUE > 0; // ❓❓❓
     id: 6,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
-("foo" + + "bar") === "fooNaN" // ❓❓❓
+"foo" + + "bar" // ❓❓❓
         `}
         />
       </div>
     ),
     answers: [
       { id: 0, answer: 'Error' },
-      { id: 1, answer: 'true', correct: true },
-      { id: 2, answer: 'false' },
+      { id: 1, answer: '"fooNaNbar"' },
+      { id: 2, answer: 'NaN' },
+      { id: 3, answer: 'fooNaN', correct: true },
     ],
   },
   {
     id: 7,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 (1) === 1; // true
@@ -170,18 +172,20 @@ Number.prototype.isOne = function () {
     id: 8,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
-++[[]][+[]] === 1 // ❓❓❓
+++[[]][+[]] // ❓❓❓
         `}
         />
       </div>
     ),
     answers: [
       { id: 0, answer: 'Error' },
-      { id: 1, answer: 'true', correct: true },
-      { id: 2, answer: 'false' },
+      { id: 1, answer: '1', correct: true },
+      { id: 2, answer: '0' },
+      { id: 3, answer: 'undefined' },
+      { id: 4, answer: 'NaN' },
     ],
   },
   {
@@ -201,13 +205,14 @@ WTF[WTF][WTF]("alert('wtf')")();
       { id: 0, answer: 'Error' },
       { id: 1, answer: 'Nothing' },
       { id: 2, answer: 'Alert "wtf"', correct: true },
+      { id: 3, answer: 'console log "Alert "wtf""' },
     ],
   },
   {
     id: 10,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 5.toString(); // Uncaught SyntaxError: Invalid or unexpected token
@@ -227,7 +232,7 @@ WTF[WTF][WTF]("alert('wtf')")();
     id: 11,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 parseInt(null, 24); // ❓❓❓
@@ -249,7 +254,7 @@ parseInt(null, 24); // ❓❓❓
     id: 12,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 Math.min() < Math.max(); // ❓❓❓
@@ -275,7 +280,7 @@ Math.min(); // Infinity
     id: 13,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 parseInt('Infinity', 24); // ❓❓❓
@@ -296,7 +301,7 @@ parseInt('Infinity', 24); // ❓❓❓
     id: 14,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 [,,,].join() // ❓❓❓
@@ -329,14 +334,15 @@ if (localStorage[0]) {
     answers: [
       { id: 0, answer: 'Error' },
       { id: 1, answer: 'Nothing' },
-      { id: 2, answer: 'Will print "wtf"', correct: true },
+      { id: 2, answer: 'Console log "wtf"', correct: true },
+      { id: 3, answer: 'Alert "wtf"', correct: true },
     ],
   },
   {
     id: 16,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 typeof document.all[0]; // object
@@ -355,7 +361,7 @@ typeof document.all; // ❓❓❓
     id: 17,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 const r = new RegExp('wtf', 'gi');
@@ -368,14 +374,15 @@ r.test('wtf'); // ❓❓❓
     answers: [
       { id: 0, answer: 'Error' },
       { id: 1, answer: 'true' },
-      { id: 2, answer: 'false', correct: true },
+      { id: 2, answer: 'undefined' },
+      { id: 3, answer: 'false', correct: true },
     ],
   },
   {
     id: 18,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 const a = [1,2,3];
@@ -399,7 +406,7 @@ a[a.indexOf(100)] // ❓❓❓
     id: 19,
     content: (
       <div>
-        <p>What will be the result of the following code?</p>
+        <p>What is the result of the following code?</p>
         <Code
           code={`
 [] + {} // ❓❓❓
