@@ -223,8 +223,8 @@ WTF[WTF][WTF]("alert('wtf')")();
     answers: [
       { id: 0, answer: 'Error' },
       { id: 1, answer: '5' },
-      { id: 1, answer: 'undefined' },
-      { id: 2, answer: '"5"', correct: true },
+      { id: 2, answer: 'undefined' },
+      { id: 3, answer: '"5"', correct: true },
     ],
   },
   {

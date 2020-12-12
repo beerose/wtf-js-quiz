@@ -46,7 +46,7 @@ const theme: Theme = merge(funk as Theme, {
     container: 1100,
   },
   fonts: {
-    heading: 'Oswald, serif',
+    heading: 'Andika New Basic, serif',
     body: 'Andika New Basic, system-ui, sans-serif',
     mono: 'Monolisa, Fira Code, Hasklig, Hack, Menlo, Monaco',
   },
@@ -112,7 +112,7 @@ const theme: Theme = merge(funk as Theme, {
       },
     },
     a: {
-      color: 'text',
+      color: 'primary',
       cursor: 'pointer',
       textDecoration: 'none',
       borderBottom: '2px solid',
@@ -121,16 +121,14 @@ const theme: Theme = merge(funk as Theme, {
       ':focus, :hover': {
         ':before': {
           content: '""',
-          borderColor: 'secondary',
-          borderWidth: '2px',
-          borderStyle: 'solid',
+          backgroundColor: secondaryLight,
           opacity: 0.9,
           position: 'absolute',
           top: -1,
           bottom: -1,
           right: -1,
           left: -1,
-          transform: 'rotate(-4deg)',
+          transform: 'rotate(-2deg)',
         },
       },
     },
@@ -139,14 +137,17 @@ const theme: Theme = merge(funk as Theme, {
       lineHeight: ['50px', '70px'],
       color: 'heading',
       fontSize: [6, 7],
+      fontWeight: 700,
     },
     h2: {
       color: 'heading',
       fontSize: 5,
+      fontWeight: 700,
     },
     h3: {
       color: 'heading',
       fontSize: 4,
+      fontWeight: 700,
     },
     h4: {
       color: 'heading',
@@ -247,6 +248,17 @@ const theme: Theme = merge(funk as Theme, {
         borderColor: 'primary',
         boxShadow: t => `0 0 0 2px ${t.colors.primary}`,
         outline: 'none',
+      },
+    },
+    label: {
+      correct: {
+        '::before': {
+          content: '""',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          backgroundColor: 'green',
+        },
       },
     },
   },

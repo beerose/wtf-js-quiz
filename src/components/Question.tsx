@@ -44,7 +44,6 @@ export const Question = ({
         <Radio
           name="wtf"
           value="wtf"
-          defaultChecked
           checked={selectedAnswer === -1 || selectedAnswer === undefined}
           onChange={() => {
             dispatch({

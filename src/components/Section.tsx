@@ -9,6 +9,7 @@ export const Section: React.FC<React.ComponentProps<'section'>> = props => (
       py: [4],
       width: '800px',
       position: 'relative',
+      mb: 1,
       ...props.sx,
     }}
     {...props}

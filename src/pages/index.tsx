@@ -6,6 +6,7 @@ import { questions } from '../common/questions';
 import { Hero } from '../components/Hero';
 import { Page } from '../components/Page';
 import { Question } from '../components/Question';
+import { Results } from '../components/Results';
 import { Section } from '../components/Section';
 
 export type State = {
@@ -79,7 +80,7 @@ const reducer = (state: State, action: Action): State => {
         status: 'quiz-finished',
       };
     case 'start-over':
-      return initialState;
+      return { ...initialState, status: 'quiz-in-progress' };
 
     default:
       return state;
@@ -88,8 +89,6 @@ const reducer = (state: State, action: Action): State => {
 
 export default function IndexPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  console.log({ state });
 
   return (
     <Page>
@@ -110,6 +109,9 @@ export default function IndexPage() {
             questionIndex={state.currentQuestionIndex}
             dispatch={dispatch}
           />
+        )}
+        {state.status === 'quiz-finished' && (
+          <Results answers={state.answers} dispatch={dispatch} />
         )}
       </Section>
     </Page>
