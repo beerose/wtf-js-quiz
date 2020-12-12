@@ -6,8 +6,8 @@ export const Hero = () => (
   <Fragment>
     <h2 sx={{ mb: 3, mt: 0 }}>wtf?! JavaScript Quiz</h2>
     <p>
-      {' '}
-      We all experinced tons of WTF moments. See how much you don&apos;t know.
+      Have you ever experienced this WTF moment when working with JavaScript? I
+      bet you did. Solve the quiz to see how much you don&apos;t know about JS!
     </p>
   </Fragment>
 );
