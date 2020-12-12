@@ -5,48 +5,113 @@ import { Global } from '@emotion/core';
 
 import { Header } from './Header';
 
+const title = 'wtf?! JavaScript Quiz';
+const description =
+  "JavaScript Quiz. Come and see how much you don't know about JS.";
+const Meta: React.FC = ({ children }) => (
+  <Helmet
+    htmlAttributes={{ lang: 'en' }}
+    title={title}
+    meta={[
+      {
+        name: `description`,
+        content: description,
+      },
+      {
+        property: `og:title`,
+        content: title,
+      },
+      {
+        property: `og:type`,
+        content: `website`,
+      },
+      {
+        property: `og:description`,
+        content: description,
+      },
+      {
+        property: `og:url`,
+        content: 'https://jsquiz.wtf',
+      },
+      {
+        name: `twitter:label1`,
+        content: `Created by`,
+      },
+      {
+        name: `twitter:data1`,
+        content: 'Aleksandra Sikora',
+      },
+      {
+        name: `twitter:card`,
+        content: `summary`,
+      },
+      {
+        name: `twitter:creator`,
+        content: `@aleksandrasays`,
+      },
+      {
+        name: `twitter:title`,
+        content: title,
+      },
+      {
+        name: `twitter:description`,
+        content: description,
+      },
+      {
+        name: `keywords`,
+        content: `javascript, quiz`,
+      },
+      {
+        property: `og:image`,
+        content: `seo.png`,
+      },
+      {
+        name: `twitter:image`,
+        content: `seo.png`,
+      },
+    ]}
+  >
+    <script type={`application/ld+json`}>{`
+    {
+      "@context": "https://schema.org/",
+      "@type": "website",
+      "author": {
+        "@type": "Person",
+        "name": "Aleksandra Sikora"
+      },
+      "keywords": "javascript, quiz",
+      "headline": "${title}",
+      "url": "https://jsquiz.wtf",
+      "image": {
+        "@type": "ImageObject",
+        "url": "seo.png",
+        "width": "1000",
+        "height": "520"
+      },
+      "description": "${description}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://jsquiz.wtf"
+      }
+    }
+  `}</script>
+    {children}
+  </Helmet>
+);
+
 interface PageProps {
   children: React.ReactNode;
 }
 export function Page({ children }: PageProps) {
   return (
     <BaseStyles>
-      <Helmet
-        htmlAttributes={{
-          lang: 'en',
-        }}
-      >
-        <title>wtf?! JavaScript Quiz</title>
-        <meta
-          key="twitter:title"
-          property="twitter:title"
-          content="wtf?! JavaScript Quiz"
-        />
-        <meta
-          name="description"
-          content="JavaScript Quiz. Come and see how much you don't know about JS."
-        />
-        <meta
-          key="og:description"
-          property="og:description"
-          content="JavaScript Quiz. Come and see how much you don't know about JS."
-        />
-        ,
-        <meta
-          key="twitter:description"
-          property="twitter:description"
-          content="JavaScript Quiz. Come and see how much you don't know about JS."
-        />
-        ,
-        <meta name="keywords" content="quiz, javascript" />
-        <meta key="og:image" name="og:image" content="seo.png" />,
-        <meta key="twitter:image" name="twitter:image" content="seo.png" />
+      <Meta>
         <link
           href="https://fonts.googleapis.com/css2?family=Oswald&family=Andika+New+Basic:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" type="image/png" href="favicon.ico" sizes="16x16" />
-      </Helmet>
+      </Meta>
       <Global
         styles={{
           html: {
