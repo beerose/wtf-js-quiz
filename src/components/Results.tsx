@@ -16,10 +16,10 @@ const resultToEmoji = (res: number) => {
     return 'Yay! Looks like you\'re almost free from JS bullshit! 🎉🎉🎉';
   }
   if (res >= 4 && res < 10) {
-    return 'Not bad! Few more point and I\'d be worried about you 🥴';
+    return 'Not bad! Few more points and I\'d be worried about you 🥴';
   }
   if (res >= 10 && res < 18) {
-    return 'Well, you\'re quite experienced with JavaScript\'s quirks. I\'m so sorry. 🥲';
+    return 'Well, you\'re quite experienced with JavaScript\'s quirks. I\'m so sorry. 🙃';
   }
   return 'Wtf ⁉️ You got almost everything right. Are you okay?';
 };
