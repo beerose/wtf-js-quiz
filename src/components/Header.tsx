@@ -58,6 +58,7 @@ export const Header = (props: ComponentProps<'header'>) => {
       <Link
         href="https://github.com/beerose/wtf-js-quiz"
         sx={{ display: 'flex', variant: 'links.navLink' }}
+        aria-label="GitHub"
       >
         <GitHub />
       </Link>

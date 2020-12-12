@@ -11,8 +11,17 @@ interface PageProps {
 export function Page({ children }: PageProps) {
   return (
     <BaseStyles>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+      >
         <title>wtf?! JS Quiz</title>
+        <meta
+          name="description"
+          content="JavaScript Quiz. Come and see how much you don't know about JS."
+        />
+        <meta name="keywords" content="quiz, javascript" />
         <link
           href="https://fonts.googleapis.com/css2?family=Oswald&family=Andika+New+Basic:wght@400;700&display=swap"
           rel="stylesheet"
