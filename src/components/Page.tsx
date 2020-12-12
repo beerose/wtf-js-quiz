@@ -12,7 +12,7 @@ export function Page({ children }: PageProps) {
   return (
     <BaseStyles>
       <Helmet>
-        <title>useComments</title>
+        <title>wtf?! JS Quiz</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Oswald&family=Andika+New+Basic:wght@400;700&display=swap"
           rel="stylesheet"
