@@ -15,13 +15,13 @@ const resultToEmoji = (res: number) => {
   if (res < 4) {
     return 'Yay! Looks like you\'re almost free from JS bullshit! 🎉🎉🎉';
   }
-  if (res >= 4 && res < 8) {
+  if (res >= 4 && res < 10) {
     return 'Not bad! Few more point and I\'d be worried about you 🥴';
   }
-  if (res >= 8 && res < 16) {
-    return 'Well, you\'re quite experienced in JavaScript\'s quirks. I\'m so sorry. 🥲';
+  if (res >= 10 && res < 18) {
+    return 'Well, you\'re quite experienced with JavaScript\'s quirks. I\'m so sorry. 🥲';
   }
-  return '';
+  return 'Wtf ⁉️ You got almost everything right. Are you okay?';
 };
 
 type ResultsProps = {
@@ -38,6 +38,8 @@ export const Results = ({ answers, dispatch }: ResultsProps) => {
       return acc;
     }, 0);
   }, [answers]);
+
+  console.log({ answers });
 
   return (
     <Card>
@@ -95,26 +97,28 @@ export const Results = ({ answers, dispatch }: ResultsProps) => {
       {questions.map(question => (
         <Fragment key={question.id}>
           {question.content}
-          {question.answers.map(a => (
-            <Label
-              key={a.id}
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                p: 1,
-                py: '2px',
-                boxShadow: a.correct ? '0px 0px 0px 2px green' : 'unset',
-              }}
-            >
-              <Radio
-                name={a.answer}
-                value={a.answer}
-                checked={answers[question.id] === a.id}
-                disabled
-              />
-              {a.answer}
-            </Label>
-          ))}
+          {question.answers.map(a => {
+            return (
+              <Label
+                key={a.id}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  p: 1,
+                  py: '2px',
+                  boxShadow: a.correct ? '0px 0px 0px 2px green' : 'unset',
+                }}
+              >
+                <Radio
+                  name={`${question.id}-${a.id}-${a.answer}`}
+                  value={`${question.id}-${a.id}-${a.answer}`}
+                  checked={answers[question.id] === a.id}
+                  disabled
+                />
+                {a.answer}
+              </Label>
+            );
+          })}
           <Label
             sx={{ display: 'flex', alignItems: 'center', p: 1, py: '2px' }}
           >

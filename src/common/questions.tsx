@@ -234,15 +234,17 @@ WTF[WTF][WTF]("alert('wtf')")();
         <p>What will be the result of the following code?</p>
         <Code
           code={`
-parseInt(null, 24) === 23; // ❓❓❓
+parseInt(null, 24); // ❓❓❓
         `}
         />
       </div>
     ),
     answers: [
       { id: 0, answer: 'Error' },
-      { id: 1, answer: 'false' },
-      { id: 2, answer: 'true', correct: true },
+      { id: 1, answer: 'null' },
+      { id: 2, answer: '23', correct: true },
+      { id: 3, answer: '24' },
+      { id: 4, answer: '25' },
     ],
     explanation:
       'https://stackoverflow.com/questions/6459758/parseintnull-24-23-wait-what',
