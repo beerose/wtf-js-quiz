@@ -1,13 +1,12 @@
 /* @jsx jsx */
 import { useReducer } from 'react';
 import { Button, Card, jsx } from 'theme-ui';
+import { questions } from '../common/questions';
 
 import { Hero } from '../components/Hero';
 import { Page } from '../components/Page';
 import { Question } from '../components/Question';
 import { Section } from '../components/Section';
-
-const COUNT = 10;
 
 export type State = {
   status: 'initial' | 'quiz-in-progress' | 'quiz-finished';
@@ -51,7 +50,7 @@ const reducer = (state: State, action: Action): State => {
         status: 'quiz-in-progress',
       };
     case 'go-to-next-question':
-      if (state.currentQuestionIndex >= COUNT) {
+      if (state.currentQuestionIndex >= questions.length) {
         return state;
       }
       return {

@@ -1,13 +1,12 @@
 import { funk, dark } from '@theme-ui/presets';
-import nightOwl from '@theme-ui/prism/presets/night-owl.json';
 import { Theme, merge } from 'theme-ui';
 import { alpha } from '@theme-ui/color';
 
 const primary = {
   fontFamily: 'inherit',
-  fontWeight: 'bold',
   cursor: 'pointer',
   borderRadius: 0,
+  paddingTop: '5px',
   transition: 'transform 150ms linear',
   ':hover, :focus': {
     transform: 'translateY(-0.125rem)',
@@ -21,19 +20,25 @@ const primary = {
 };
 
 const secondaryLight = alpha('secondary', 0.2);
-const secondarySemiLight = alpha('secondary', 0.5);
 const theme: Theme = merge(funk as Theme, {
   initialColorModeName: 'light',
   useColorSchemeMediaQuery: true,
   colors: {
     shadow: 'rgba(0,0,0,0.2)',
     heading: 'rgb(51, 51, 51)',
+    primary: '#B80000',
+    secondary: 'rgb(51, 51, 51)',
+    headingLight: 'rgba(51,51,51,0.8)',
     modes: {
       dark: {
         ...dark.colors,
         shadow: 'rgba(0,0,0,0.4)',
         text: 'hsl(210, 60%, 97%)',
         heading: '#fff',
+        background: 'rgb(0, 18, 35)',
+        primary: 'rgb(255, 203, 139)',
+        secondary: 'hsl(210, 60%, 97%)',
+        headingLight: '#878787',
       },
     },
   },
@@ -42,7 +47,7 @@ const theme: Theme = merge(funk as Theme, {
   },
   fonts: {
     heading: 'Oswald, serif',
-    body: 'Raleway, system-ui, sans-serif',
+    body: 'Andika New Basic, system-ui, sans-serif',
     mono: 'Monolisa, Fira Code, Hasklig, Hack, Menlo, Monaco',
   },
   radii: {
@@ -59,7 +64,9 @@ const theme: Theme = merge(funk as Theme, {
       borderRadius: 0,
       border: t => `4px solid ${t.colors.background}`,
     },
-    root: {},
+    root: {
+      fontSize: 3,
+    },
     time: {
       fontWeight: '200',
       color: 'gray',
@@ -85,31 +92,24 @@ const theme: Theme = merge(funk as Theme, {
     textarea: {
       fontFamily: 'body',
     },
+    footer: {
+      fontSize: 2,
+    },
     section: {
       width: '100%',
       px: [3, 3, 3, 4],
     },
     p: {
+      fontSize: 3,
       my: 2,
       width: '70ch',
       maxWidth: '100%',
-    },
-    code: {
-      ...nightOwl,
-      fontFamily: 'mono',
-      fontSize: '0.8em',
-      padding: '4px 6px',
-      borderRadius: 'tiny',
     },
     inlineCode: {
       '&&': {
         bg: 'muted',
         color: 'text',
       },
-    },
-    pre: {
-      padding: '8px 10px',
-      borderRadius: 'small',
     },
     a: {
       color: 'text',
@@ -197,7 +197,7 @@ const theme: Theme = merge(funk as Theme, {
     primary: primary,
     secondary: {
       ...primary,
-      backgroundColor: secondarySemiLight,
+      backgroundColor: 'secondary',
     },
   },
   cards: {
@@ -205,7 +205,7 @@ const theme: Theme = merge(funk as Theme, {
       position: 'relative',
       zIndex: 10,
       backgroundColor: 'background',
-      border: t => `2px solid ${t.colors.heading}`,
+      border: t => `2px solid ${t.colors.headingLight}`,
       transform: 'translateX(5px)',
       p: [2, 3],
       pt: [3, 4],
@@ -217,7 +217,7 @@ const theme: Theme = merge(funk as Theme, {
         position: 'absolute',
         width: '100%',
         height: '100%',
-        border: t => `2px solid ${t.colors.heading}`,
+        border: t => `2px solid ${t.colors.headingLight}`,
         backgroundColor: 'background',
         top: '8px',
         left: '-12px',

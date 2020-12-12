@@ -5,11 +5,7 @@ import { jsx } from 'theme-ui';
 export const Hero = () => (
   <Fragment>
     <h2 sx={{ mb: 3, mt: 0 }}>wtf?! JavaScript Quiz</h2>
-    <p
-      sx={{
-        fontSize: 3,
-      }}
-    >
+    <p>
       {' '}
       We all experinced tons of WTF moments. See how much you don&apos;t know.
     </p>

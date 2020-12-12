@@ -14,7 +14,7 @@ export function Page({ children }: PageProps) {
       <Helmet>
         <title>useComments</title>
         <link
-          href="https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:wght@300;400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Oswald&family=Andika+New+Basic:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <link
