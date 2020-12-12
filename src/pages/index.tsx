@@ -97,6 +97,23 @@ export default function IndexPage() {
     );
   }, []);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Backspace':
+          dispatch({ type: 'go-to-prev-question' });
+          return;
+        case ' ':
+          dispatch({ type: 'go-to-next-question' });
+          return;
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
   return (
     <Page>
       <Section>

@@ -54,6 +54,7 @@ export const Question = ({
         <Radio
           name={currentQuestion.id.toString()}
           value="wtf"
+          autoFocus
           checked={selectedAnswer === -1 || selectedAnswer === undefined}
           onChange={() => {
             dispatch({
