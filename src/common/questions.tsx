@@ -402,4 +402,43 @@ a[a.indexOf(100)] // ❓❓❓
       { id: 4, answer: '"wtf", "wtf", "wtf"', correct: true },
     ],
   },
+  {
+    id: 19,
+    content: (
+      <div>
+        <p>What will be the result of the following code?</p>
+        <Code
+          code={`
+[] + {} // ❓❓❓
+        `}
+        />
+      </div>
+    ),
+    answers: [
+      { id: 0, answer: 'Error' },
+      { id: 1, answer: 'undefined' },
+      { id: 2, answer: '"[object Object]"', correct: true },
+      { id: 3, answer: '0' },
+      { id: 4, answer: 'NaN' },
+    ],
+  },
+  {
+    id: 20,
+    content: (
+      <div>
+        <p>What will be the result of the following code?</p>
+        <Code
+          code={`
+'w' + (!![] + [])[+[]] + (![] + [])[+[]]
+        `}
+        />
+      </div>
+    ),
+    answers: [
+      { id: 0, answer: 'Error' },
+      { id: 3, answer: 'wundefinedundefined' },
+      { id: 1, answer: 'wtf', correct: true },
+      { id: 2, answer: '"w[object Object]"' },
+    ],
+  },
 ];
