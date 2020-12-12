@@ -13,8 +13,9 @@ export const Hero = () => (
     `}
     />
     <p>
-      Have you ever experienced this WTF moment when working with JavaScript? I
-      bet you did. Solve the quiz to see how much you don&apos;t know about JS!
+      Have you ever experienced these WTF moments when working with JavaScript?
+      I bet you did. Solve the quiz to see how much you don&apos;t know about
+      JS!
     </p>
   </Fragment>
 );

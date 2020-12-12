@@ -20,7 +20,7 @@ export const questions: Question[] = [
         <p>What will be the result of the following code?</p>
         <Code
           code={`
-typeof NaN // ❓❓❓
+typeof NaN; // ❓❓❓
         `}
         />
       </div>
@@ -95,9 +95,8 @@ console.log(wtf); // ❓❓❓
         <p>What will be the result of the following code?</p>
         <Code
           code={`
-let a = 02020;
-
-console.log(a); // ❓❓❓
+const num = 02020;
+console.log(num); // ❓❓❓
         `}
         />
       </div>
@@ -153,11 +152,9 @@ Number.MIN_VALUE > 0; // ❓❓❓
         <Code
           code={`
 (1) === 1; // true
-
 Number.prototype.isOne = function () {
   return this === 1;
 }
-
 (1).isOne(); // ❓❓❓
         `}
         />
@@ -194,7 +191,7 @@ Number.prototype.isOne = function () {
         <p>What will happen after excuting the following code?</p>
         <Code
           code={`
-let WTF = "constructor";
+const WTF = "constructor";
 WTF[WTF][WTF]("alert('wtf')")();
         `}
         />
@@ -214,7 +211,6 @@ WTF[WTF][WTF]("alert('wtf')")();
         <Code
           code={`
 5.toString(); // Uncaught SyntaxError: Invalid or unexpected token
-
 5..toString(); // ❓❓❓
         `}
         />
@@ -323,7 +319,6 @@ parseInt('Infinity', 24); // ❓❓❓
         <Code
           code={`
 localStorage[0] = undefined;
-
 if (localStorage[0]) {
   console.log('wtf');
 }
@@ -345,7 +340,6 @@ if (localStorage[0]) {
         <Code
           code={`
 typeof document.all[0]; // object
-
 typeof document.all; // ❓❓❓
         `}
         />
@@ -365,7 +359,6 @@ typeof document.all; // ❓❓❓
         <Code
           code={`
 const r = new RegExp('wtf', 'gi');
-
 r.test('wtf'); // true
 r.test('wtf'); // ❓❓❓
         `}
@@ -420,25 +413,6 @@ a[a.indexOf(100)] // ❓❓❓
       { id: 2, answer: '"[object Object]"', correct: true },
       { id: 3, answer: '0' },
       { id: 4, answer: 'NaN' },
-    ],
-  },
-  {
-    id: 20,
-    content: (
-      <div>
-        <p>What will be the result of the following code?</p>
-        <Code
-          code={`
-'w' + (!![] + [])[+[]] + (![] + [])[+[]]
-        `}
-        />
-      </div>
-    ),
-    answers: [
-      { id: 0, answer: 'Error' },
-      { id: 3, answer: 'wundefinedundefined' },
-      { id: 1, answer: 'wtf', correct: true },
-      { id: 2, answer: '"w[object Object]"' },
     ],
   },
 ];
