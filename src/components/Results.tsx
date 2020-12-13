@@ -70,7 +70,7 @@ export const Results = ({ answers, dispatch }: ResultsProps) => {
           }}
         >
           <a
-            href={`https://twitter.com/intent/tweet/?text=I%20got%20${correctAnswers}%2F${questions.length}%20correct%20answers%20in%20wtf%3F!%20JavaScript%20Quiz%20by%20%40aleksandrasays!%20%0ATry%20it%20out%20https%3A%2F%2Fwtf-js-quiz.netlify.com&amp;url=`}
+            href={`https://twitter.com/intent/tweet/?text=I%20got%20${correctAnswers}%2F${questions.length}%20correct%20answers%20in%20wtf%3F!%20JavaScript%20Quiz%20by%20%40aleksandrasays!%20%0ATry%20it%20out%20https%3A%2F%2Fjsquiz.wtf&amp;url=`}
             target="_blank"
             rel="noopener noreferrer"
           >
