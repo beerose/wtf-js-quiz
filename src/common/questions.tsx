@@ -31,6 +31,8 @@ typeof NaN; // ❓❓❓
       { id: 2, answer: 'object' },
       { id: 3, answer: 'undefined' },
     ],
+    explanation:
+      'https://stackoverflow.com/questions/2801601/why-does-typeof-nan-return-number',
   },
   {
     id: 1,
@@ -49,6 +51,8 @@ typeof NaN; // ❓❓❓
       { id: 1, answer: 'true' },
       { id: 2, answer: 'false', correct: true },
     ],
+    explanation:
+      'https://stackoverflow.com/questions/203739/why-does-instanceof-return-false-for-some-literals',
   },
   {
     id: 2,
@@ -67,6 +71,8 @@ typeof NaN; // ❓❓❓
       { id: 1, answer: 'true', correct: true },
       { id: 2, answer: 'false' },
     ],
+    explanation:
+      'https://stackoverflow.com/questions/38662231/evaluates-to-true',
   },
   {
     id: 3,

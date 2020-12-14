@@ -65,6 +65,7 @@ export const Code = ({ code }: { code: string }) => {
       }}
     >
       <button
+        type="button"
         sx={{
           appearance: 'none',
           position: 'absolute',
