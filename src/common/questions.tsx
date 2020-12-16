@@ -341,7 +341,7 @@ if (localStorage[0]) {
       { id: 0, answer: 'Error' },
       { id: 1, answer: 'Nothing' },
       { id: 2, answer: 'Console log "wtf"', correct: true },
-      { id: 3, answer: 'Alert "wtf"', correct: true },
+      { id: 3, answer: 'Alert "wtf"' },
     ],
   },
   {
